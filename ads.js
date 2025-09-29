@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+window.addEventListener('load', () => { 
   fetch("https://api.country.is")
     .then(res => res.json())
     .then(data => {
