@@ -1,4 +1,3 @@
-<script>
 window.addEventListener('load', () => {
   fetch("https://api.country.is")
     .then(res => res.json())
@@ -154,7 +153,7 @@ window.addEventListener('load', () => {
             }
           });
 
-          // Lọc banner theo alt
+          
           (function filterBannersByCountry() {
             const country = (data.country || "").toUpperCase(); 
             const showForVNOnly = country === "VN";
@@ -189,4 +188,3 @@ window.addEventListener('load', () => {
       }
     });
 });
-</script>
