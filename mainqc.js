@@ -1,3 +1,29 @@
+function setCookie(name, value, minutes) {
+  const expires = minutes
+    ? `; expires=${new Date(Date.now() + minutes * 60000).toUTCString()}`
+    : '';
+  document.cookie = `${name}=${value || ''}${expires}; path=/`;
+}
+
+function getCookie(name) {
+  const nameEQ = `${name}=`;
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    cookie = cookie.trim();
+    if (cookie.indexOf(nameEQ) === 0) {
+      return cookie.substring(nameEQ.length);
+    }
+  }
+  return null;
+}
+
+document.body.addEventListener('click', () => {
+  const clicks = parseInt(getCookie('bodyClicked')) || 0;
+  if (clicks < 3) {
+    setCookie('bodyClicked', clicks + 1, 60);
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   handleAdVisibility();
   document.addEventListener("click", function (e) {
