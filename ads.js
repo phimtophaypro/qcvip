@@ -1,3 +1,4 @@
+// update
 window.addEventListener('load', () => { 
   fetch("https://api.country.is")
     .then(res => res.json())
